@@ -12,16 +12,13 @@
 #include "OneWire.h"
 #include "DallasTemperature.h"
 
-//#define PIN_DS18B20_DATA 3
+#define PIN_ONE_WIRE_BUS 3	// oneWire port
+#define SENSER_BIT 9	// 精度の設定bit
 
-#define ONE_WIRE_BUS 3 // データ(黄)で使用するポート番号
-#define SENSER_BIT    9      // 精度の設定bit
-
-OneWire oneWire(ONE_WIRE_BUS);
+OneWire oneWire(PIN_ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
 void setup(){
-	//pinMode(PIN_DS18B20_DATA, INPUT);
 	Serial.begin(9600);
 	sensors.setResolution(SENSER_BIT);
 }
