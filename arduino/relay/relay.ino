@@ -109,11 +109,15 @@ void outputRelay(){
 }
 
 void setup(){
-	pinMode(PIN_RELAY_1, OUTPUT);
+	/*pinMode(PIN_RELAY_1, OUTPUT);
 	pinMode(PIN_RELAY_2, OUTPUT);
-
 	digitalWrite(PIN_RELAY_1, HIGH);
-	digitalWrite(PIN_RELAY_2, HIGH);
+	digitalWrite(PIN_RELAY_2, HIGH);*/
+
+	for(int index=0; index < NUMBER_RELAY; index++){
+		pinMode(PIN_RELAY_ARRAY[index], OUTPUT);
+	}
+	outputRelay();
 
 	Serial.begin(115200);
 }
